@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="login-screen" id="loginScreen">
+    <h2>Teacher Login</h2>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <p id="loginError"></p>
+  </div>
+
+  <div class="dashboard" id="dashboard" style="display:none">
+    <h1>Welcome, <span id="teacherName"></span></h1>
+    <button onclick="logout()">Logout</button>
+
+    <h2>Your Attendance This Week</h2>
+    <table>
+      <thead><tr><th>Date</th><th>Status</th></tr></thead>
+      <tbody id="attendanceTable"></tbody>
+    </table>
+
+    <h2>Substitute Classes</h2>
+    <ul id="substitutionList"></ul>
+
+    <h2>Upload Proof of Absence</h2>
+    <input type="file" id="proofFile">
+    <button onclick="uploadProof()">Upload</button>
+    <p id="uploadStatus"></p>
+  </div>
+</body>
+</html>
